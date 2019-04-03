@@ -22,7 +22,7 @@ var _apiFetch = _interopRequireDefault(require("@wordpress/api-fetch"));
 var _apiFetch = _interopRequireDefault(wp.apiFetch); // no `require` here
 ```
 
-3. I changed `React.createElement` to `_element.createElement`, where`_element` (which was defined via the online Babel compiler, and it) is a reference to `wp.element`.
+3. I changed `React.createElement` to `_element.createElement`, where`_element` (which was defined via the online Babel compiler<strike>, and it</strike>) is a reference to `wp.element`.
 
 4. I removed the `exports` and renamed `_default` to `Module`.
 
@@ -45,7 +45,7 @@ You can compare these files to see what I changed:
     	return function( props ) {
     		// props.slug is the taxonomy (slug)
     		if ( taxes.indexOf( props.slug ) >= 0 ) {
-    			return _element.createElement(
+    			return wp.element.createElement(
     				// If only wp.components.HierarchicalTermSelector exists..
     				class extends wp.components.HierarchicalTermSelector {
     					constructor() {
@@ -58,7 +58,7 @@ You can compare these files to see what I changed:
     				props
     			);
     		} else {
-    			return _element.createElement(
+    			return wp.element.createElement(
     				OriginalComponent,
     				props
     			);
